@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useGeolocated } from "react-geolocated";
 import { point } from "@turf/helpers";
 import distance from "@turf/distance";
-import { sortBy, memoize } from "lodash";
+import { sortBy } from "lodash";
 import allCinemas from "./cinemas";
 
 // Manually add a point to each cinema this is to be used during comparisons later
@@ -12,7 +12,7 @@ const cinemasWithPoints = allCinemas.map((cinema) => ({
   loc: point([cinema.lng, cinema.lat])
 }));
 
-const computeCinemaDistance = memoize((lat, lng) => {
+const computeCinemaDistance = (lat, lng) => {
   // Create this point to use later for the same reason as above.
   const location = point([lng, lat]);
 
@@ -25,7 +25,7 @@ const computeCinemaDistance = memoize((lat, lng) => {
     })),
     "distance"
   );
-});
+};
 
 const useNearbyCinemas = () => {
   // Use library's hook to get coords of location

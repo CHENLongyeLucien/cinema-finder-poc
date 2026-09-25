@@ -14,7 +14,9 @@ const CinemaListItem = ({ name, lat, lng, phoneNumber, distance, ...otherProps }
     <ListItem>
       <ListItemText>
         {name}
-        {distance && (<Chip size="small" sx={{ ml: 1 }} label={`${format(',.1f')(distance)} km`} />)}
+        {distance !== undefined && distance !== null && (
+          <Chip size="small" sx={{ ml: 1 }} label={`${format(',.1f')(distance)} km`} />
+        )}
       </ListItemText>
       {
         phoneNumber && (

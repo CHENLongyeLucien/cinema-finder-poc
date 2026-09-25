@@ -16,7 +16,11 @@ const Provider = ({ children }) => (
   <HashRouter>
     <ThemeProvider {...{ theme }}>
       <CssBaseline />
-      <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'bottom', horizontal: 'right', timeout: 500 }}>
+      <SnackbarProvider
+        maxSnack={3}
+        autoHideDuration={500}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
         {children}
       </SnackbarProvider>
     </ThemeProvider>
