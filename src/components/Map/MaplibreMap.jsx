@@ -30,7 +30,7 @@ const MapSnappingEventListener = () => {
     try {
       // [Docs](https://maplibre.org/maplibre-gl-js-docs/api/map/#map#flyto)
       map.flyTo({
-        center: [lat, lng],
+        center: [lng, lat],
         zoom: 14,
       })
     } catch (e) {
